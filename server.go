@@ -1,16 +1,24 @@
 package main
 
 import (
-    "fmt"
-    "log"
-    "net/http"
+	"fmt"
+	"log"
+	"net/http"
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprintf(w, "Hello World %s!", r.URL.Path[1:])
+	fmt.Println(r.URL.Path)
+	fmt.Fprint(w, `{
+    "total": 0,
+    "count": 0,
+    "books": []}`)
 }
 
 func main() {
-    http.HandleFunc("/", handler)
-    log.Fatal(http.ListenAndServe(":3000", nil))
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Println(r.URL.Path)
+		fmt.Fprint(w, `Hello world!`)
+	})
+	http.HandleFunc("/books", handler)
+	log.Fatal(http.ListenAndServe(":3000", nil))
 }

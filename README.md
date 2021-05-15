@@ -13,5 +13,9 @@ go build server.go
 
 ### Make an API call
 ```
-curl localhost:3000/foo
+curl localhost:3000/
+```
+Response:
+```
+Hello world!
 ```

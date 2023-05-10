@@ -9,9 +9,10 @@ import (
 func handler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println(r.URL.Path)
 	fmt.Fprint(w, `{
-    "total": 0,
-    "count": 0,
-    "books": []}`)
+    			"total": 0,
+    			"count": 0,
+    			"books": []
+			}`)
 }
 
 func main() {

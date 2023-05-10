@@ -16,7 +16,6 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Println(r.URL.Path)
 		fmt.Fprint(w, `Hello world!`)
 	})
 	http.HandleFunc("/books", handler)
